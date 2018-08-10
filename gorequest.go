@@ -795,7 +795,7 @@ func (s *SuperAgent) SendFile(file interface{}, args ...string) *SuperAgent {
 	if len(args) >= 2 && len(args[1]) > 0 {
 		fieldname = strings.TrimSpace(args[1])
 	}
-	if fieldname == "file" || fieldname == "" {
+	if len(args) < 2 || len(args[1]) <= 0 {
 		fieldname = "file" + strconv.Itoa(len(s.FileData)+1)
 	}
 
