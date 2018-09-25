@@ -213,6 +213,11 @@ func (s *SuperAgent) Post(targetUrl string) *SuperAgent {
 	return s
 }
 
+func (s *SuperAgent) CookieJar(jar http.CookieJar) *SuperAgent {
+	s.Client.Jar = jar
+	return s
+}
+
 func (s *SuperAgent) Head(targetUrl string) *SuperAgent {
 	s.ClearSuperAgent()
 	s.Method = HEAD
